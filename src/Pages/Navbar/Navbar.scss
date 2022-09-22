@@ -1,0 +1,125 @@
+@import "../../styles/variables";
+h1{
+    font-size: 3rem;
+}
+#Navbar{
+    // background-color: #111;
+    width: 99vw;
+    overflow-x: hidden;
+    padding-top: 1rem;
+    .container{
+        width: 90vw;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left{
+            display: flex;
+            h1{
+                padding: 1rem;
+            }
+            img{
+                width: 130px;
+                height: 70px;
+                margin-right: 4rem;
+                margin-bottom: 1rem;
+            }
+            .b2{
+                display: none;
+            }
+            .b3{
+                display: none;
+            }
+            a{
+                text-decoration: none;
+                margin: 2rem 2rem;
+                color: #111;
+                font-size: 1.5rem;
+                transition: all ease-in-out .3s;
+                &:hover{
+                    border-bottom:2px solid $primaryColor;
+                }
+            }
+        }
+        .right{
+            margin: 2rem;
+            a{
+                text-decoration: none;
+                margin: 2rem 2rem;
+                color: #111;
+                font-size: 1.5rem;
+                transition: all ease-in-out .3s;
+                &:hover{
+                    border-bottom:2px solid $primaryColor;
+                }
+            }
+            .link{
+                text-decoration: none;
+                background-color: $primaryColor;
+                padding: .5rem 1rem;
+                border-radius: .5rem;
+                border: 1px solid $primaryColor;
+                color: #fff;
+                font-size: 1.5rem;
+                transition: all ease-in-out .3s;
+                &:hover{
+                    background-color: #fff;
+                    color: $primaryColor;
+                }
+            }
+        }
+    }
+}
+//? ################################### Responsiveness ###############################################
+@media(max-width:850px){
+    #Navbar{
+        .container{
+            // justify-content: center;
+            align-items: flex-start;
+            .left{
+                .b1{
+                    display: none;
+                }
+                .b2{
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    margin: 0;
+                    margin-bottom: 2rem;
+                }
+                .b3{
+                    display: block;
+                    font-size: 2rem;
+                    color: $primaryColor;
+                }
+            }
+            .right{
+                margin: 0;
+                .a{
+                    display: none;
+                }
+                margin-top: 1rem;
+                a{
+                    margin: 0rem;
+                }
+                padding: 0;
+            }
+        }
+    }
+}
+@media(max-width:370px){
+    #Navbar{
+        .container{
+            .left{
+                .b2{
+                    width: 40px;
+                    height: 40px;
+                }
+                .b3{
+                    font-size: 1.5rem;
+                }
+            }
+
+        }
+    }
+}

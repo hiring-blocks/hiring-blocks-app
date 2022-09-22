@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+
+#track{
+    width: 99vw;
+    overflow-x: hidden;
+    .container{
+        width: 85vw;
+        margin: auto;
+        margin-top: 5rem;
+        h1{
+            font-size: 3rem;
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            color: $textGrey;
+            font-size: 1.2rem;
+            padding: 1.5rem 0rem;
+            margin: auto;
+        }
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .sbox{
+                width: 300px;
+                .imgBox{
+                    width: 300px;
+                    height: 300px;
+                    border-radius: .5rem;
+                    margin: auto;
+                    img{
+                        width: 300px;
+                        height: 300px;
+                    }
+                }
+                h2{
+                    text-align: center;
+                    padding: 1rem 0rem;
+                }
+                h3{
+                    text-align: center;
+                    color: $textGrey;
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

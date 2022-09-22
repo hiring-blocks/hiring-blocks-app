@@ -1,0 +1,146 @@
+@import "../../styles/variables";
+
+#jobs{
+    width: 99vw;
+    overflow-x: hidden;
+    margin-top: 8rem;
+    .container{
+        width: 85vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        h1{
+            font-size: 3rem;
+        }
+        p{
+            font-size: 1.2rem;
+            color: $textGrey;
+            padding: 1rem 0rem;
+            margin-bottom: 1rem;
+        }
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .smBox{
+                margin-bottom: 4rem;
+                border: 1px solid rgba(128, 128, 128, 0.306);
+                border-radius: .5rem;
+                width: 30rem;
+                padding: 2rem;
+                transition: all ease-in-out .3s;
+                box-shadow: 0px 0px 10px 0px rgba(17, 17, 17, 0.135);
+                &:hover{
+                    background-color: rgba(255, 166, 0, 0.156);
+                    transform: translateY(-10px);
+                }
+                position: relative;
+                .top{
+                    display: flex;
+                    .left{
+                        img{
+                            width: 80px;
+                            background-color: $backgroundColor;
+                            height: 80px;
+                            border-radius: 100%;
+                            margin-bottom: 1rem;
+                            // display: none;
+                            position: absolute;
+                            // right: -120px;
+                            top: 20px;
+                            right: 20px;
+                        }
+                    }
+                    h5{
+                        font-size: 1rem;
+                        color: $textGrey;
+                    }
+                }
+                h4{
+                    font-size: 1.5rem;
+                    margin-top: 1.5rem;
+                    padding-bottom: 1rem;
+                }
+                .tags{
+                    margin: 1rem 0rem;
+                    padding-bottom: 1rem;
+                    span{
+                        background-color: rgba(127, 255, 212, 0.295);
+                        padding: .5rem;
+                        margin-right: 1rem;
+                        border-radius: .5rem;
+                    }
+                }
+                h3{
+                    padding-top: 2Srem;
+                }
+                p{
+                    font-size: 1rem;
+                    padding: 1rem;
+                }
+                .down{
+                    margin-top: 2rem;
+                    display: flex;
+                    position: relative;
+                    a{
+                        text-decoration: none;
+                        border: 2px solid $primaryColor;
+                        padding: .5rem 2rem;
+                        margin-right: 1rem;
+                        border-radius: .5rem;
+                        color: $primaryColor;
+                        transition: all ease-in-out .3s;
+                        background-color: #fff;
+                        position: absolute;
+                        right: -10px;
+                        bottom: 10px;
+                        &:hover{
+                            color: #fff;
+                            background-color: $primaryColor;
+                        }
+                    }
+                    .link{
+                        transition: all ease-in-out .3s;
+                        background-color: $primaryColor;
+                        color: #fff;
+                        &:hover{
+                            background-color: #fff;
+                            color: $primaryColor;
+                        }
+                    }
+                    .para{
+                        // display: inline;
+                    }
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+        .find{
+            align-self: flex-end;
+            width: 110px;
+            text-align: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border: 2px solid $primaryColor;
+            padding: .5rem 1rem;
+            background-color: $primaryColor;
+            color: #fff;
+            border-radius: .5rem;
+            transition: all ease-in-out .3s;
+            &:hover{
+                background-color: #fff;
+                color: $primaryColor;
+            }
+        }
+        margin-bottom: 1rem;
+    }
+}
+@media(max-width:390px){
+    #jobs{
+        .container{
+            h1{
+                font-size: 2.5rem;
+            }
+        }
+    }
+}

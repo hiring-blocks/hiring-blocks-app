@@ -1,0 +1,95 @@
+@import "../../styles/variables";
+
+#process{
+    width: 99vw;
+    overflow-x: hidden;
+    margin-top: 2rem;
+    .container{
+        background-color: $backgroundColor;
+        border-radius: 1rem;
+        padding: 2rem;
+        width: 85vw;
+        margin: auto;
+        h1{
+            text-align: center;
+            margin: 4rem;
+        }
+        .line{
+            border: 100%;
+            width: 80vw;
+            background-color: black;
+            height: 3px;
+        }
+        .box{
+            display: flex;
+            transform: translateY(-17px);
+            justify-content: space-around;
+            .circle{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: $primaryColor;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            h3{
+                margin-top: 1rem;
+                width: 100px;
+            }
+            p{
+                margin-top: 1rem;
+                padding-right: 1rem;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+@media(max-width:650px){
+    #process{
+        .container{
+            .box{
+                transform: translateY(0px);
+                margin-top: 3rem;
+                flex-direction: column;
+            }
+        }
+    }
+}
+@media(max-width:450px){
+    #process{
+        .container{
+            padding: 0;
+            h1{
+                margin: 0;
+                padding-top: 2rem;
+            }
+            .line{
+                display: none;
+            }
+            .box{
+                transform: translateY(0px);
+                // margin-top: 3rem;
+                // flex-direction: column;
+                padding: 1rem;
+                .cbox{
+                    display: flex;
+                    h3{
+                        transform: translateY(-7px);
+                        padding: 0rem 1rem;
+                        width: 200px;
+                    }
+                    margin: 1rem 0rem;
+                }
+            }
+        }
+    }
+}
+
+
+// npm run build
+// git pull origin1 main
+// git add .
+// git commit -m "build"
+// git push origin1 main

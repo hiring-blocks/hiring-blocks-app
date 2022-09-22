@@ -1,0 +1,139 @@
+@import "../../styles/variables";
+
+#Highlights{
+    margin-top: 10rem;
+    width: 99vw;
+    overflow-x: hidden;
+    .container{
+        display: flex;
+        width: 85vw;
+        margin: auto;
+        border-radius: .7rem;
+        background-color: $backgroundColor;
+        position: relative;
+        .imgBox{
+            width: 400px;
+            border-radius: 1rem;
+            
+            img{
+                width: 400px;
+            }
+            .ssc{
+                height: 600px;
+                overflow: auto;
+                overflow: hidden;
+                margin-top: 5rem;
+                margin-left: 6.9rem;
+            }
+            .ss{
+                object-fit: cover;
+                object-position: top;
+                width: 250px;
+
+            }
+            .iphone{
+                margin-top: 3rem;
+                z-index: 6;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+            }
+        }
+        .textBox{
+            h1{
+                padding: 3.5rem;
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            .box{
+                display: flex;
+                padding: 0rem 3rem;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            .HighlightsCard{
+                // border: 1px solid red;
+                width: 250px;
+                height: 150px;
+                position: relative;
+                .icon{
+                    font-size: 3rem;
+                    margin: 1.5rem 0rem 0rem 1.5rem;
+                    transform: translateX(-15px);
+                }
+                h2{
+                    font-size: 1.5rem;
+                    padding: 0rem 0rem 1rem 2rem;
+                }
+                p{
+                    font-size: 1rem;
+                    color: $textGrey;
+                    padding: 0rem 2rem;
+                }
+                .background{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 1rem;
+                    position: absolute;
+                    background-color: rgba(170, 170, 170, 0.283);
+                    top: 35px;
+                    left: 10px;
+                }
+            }
+        }
+    }
+}
+//? ################################### Responsiveness ###############################################
+@media(max-width:1250px){
+    #Highlights{
+        .container{
+            flex-direction: column;
+            .imgBox{
+                .iphone{
+                    z-index: 6;
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                }
+            }
+            
+        }
+    }
+}
+@media(max-width:400px){
+    #Highlights{
+        .container{
+            .imgBox{
+                .iphone{
+                    left: -30px;
+                }
+                .ssc{
+                    margin-left: 4.4rem;
+                }
+            }
+            
+        }
+    }
+}
+@media(max-width:370px){
+    #Highlights{
+        .container{
+            .imgBox{
+                .iphone{
+                    left: -48px;
+                }
+                .ssc{
+                    margin-left: 2.5rem;
+                }
+            }
+            .textBox{
+                h1{
+                    font-size: 2rem;
+                    padding: 0;
+                    margin: 0;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}
