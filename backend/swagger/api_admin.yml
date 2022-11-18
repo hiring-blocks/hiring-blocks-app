@@ -1,0 +1,1688 @@
+swagger: "2.0"
+
+info:
+  title: Documentation of Admin Dashboard
+  description: All API of  staging Phase is available here.
+
+host: apilms.quadbtech.com
+basePath: /
+schemes: [https]
+
+consumes: [application/json]
+produces: [application/json]
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: auth
+    in: header
+
+paths:
+  /api/admin/login:
+    get:
+      tags: ["Admin"]
+      summary: Login as a admin
+      description: Login as a admin
+      parameters:
+        - in: query
+          required: true
+          name: username
+          schema:
+            type: string
+        - in: query
+          required: true
+          name: password
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/addadmin:
+    post:
+      tags: ["Admin"]
+      summary: Add a user or new admin
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+              password:
+                type: string
+              type:
+                type: string
+              email:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/userinfo:
+    get:
+      tags: ["Admin"]
+      summary: Get user Information
+      description: Admin Routes
+      parameters:
+        - in: query
+          required: true
+          name: user_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/changepassword:
+    post:
+      tags: ["Admin"]
+      summary: change a password
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              password:
+                type: string
+              otp:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/allcourses:
+    get:
+      tags: ["Admin"]
+      summary: Get all courses
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/alltopics:
+    get:
+      tags: ["Admin"]
+      summary: Get all Topics
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/allsubtopics:
+    get:
+      tags: ["Admin"]
+      summary: Get all SubTopics
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/allchapters:
+    get:
+      tags: ["Admin"]
+      summary: Get all Chapters
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/admin_otp_verfication:
+    get:
+      tags: ["Admin"]
+      summary: Admin otp verification
+      description: Admin
+      parameters:
+        - in: query
+          required: true
+          name: username
+          schema:
+            type: string
+        - in: query
+          required: true
+          name: otp
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/all_orders:
+    get:
+      tags: ["Admin"]
+      summary: Get all Orders
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/all_users:
+    get:
+      tags: ["Admin"]
+      summary: Get all users
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/single_course:
+    get:
+      tags: ["Admin"]
+      summary: Get single course
+      description: Admin
+      parameters:
+        - in: query
+          required: true
+          name: course_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/add_cart_item:
+    post:
+      tags: ["Cart"]
+      summary: Add item to cart
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/get_cart_item:
+    get:
+      tags: ["Cart"]
+      summary: Get cart items
+      description: Admin
+      parameters:
+        - in: query
+          required: true
+          name: user_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/del_cart_item:
+    post:
+      tags: ["Cart"]
+      summary: Delete an item from the cart
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/call_otp:
+    post:
+      tags: ["Admin"]
+      summary: Get new OTP
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/add_discount_coupon:
+    post:
+      tags: ["Admin"]
+      summary: Add discount coupon
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+              flat:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_discount_coupon:
+    post:
+      tags: ["Admin"]
+      summary: Update discount coupon
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+              flat:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/delete_discount_coupon:
+    post:
+      tags: ["Admin"]
+      summary: Delete discount coupon
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/fetch_discount_coupon:
+    get:
+      tags: ["Admin"]
+      summary: Fetch the discount coupon
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/add_why_join:
+    post:
+      tags: ["Admin"]
+      summary: Add why join
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              question:
+                type: string
+              answer:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/get_why_joins:
+    get:
+      tags: ["Admin"]
+      summary: Get why joins
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_why_join:
+    post:
+      tags: ["Admin"]
+      summary: Update why join
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              why_join_id:
+                type: string
+              question:
+                type: string
+              answer:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/del_why_join:
+    post:
+      tags: ["Admin"]
+      summary: Delete why join
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              why_join_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/order_details:
+    get:
+      tags: ["Admin"]
+      summary: Get the order details
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/get_faq:
+    get:
+      tags: ["Admin"]
+      summary: Get the faqs
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/add_faq:
+    post:
+      tags: ["Admin"]
+      summary: Add the faqs
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              question:
+                type: string
+              answer:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_faq:
+    post:
+      tags: ["Admin"]
+      summary: Update the faqs
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              faq_id:
+                type: string
+              question:
+                type: string
+              answer:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/delete_faq:
+    post:
+      tags: ["Admin"]
+      summary: Delete a faq
+      description: Admin
+      parameters:
+        - in: query
+          required: true
+          name: faq_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/get_course_sale:
+    get:
+      tags: ["Admin"]
+      summary: Get the course detail
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/get_revenue_analytics:
+    get:
+      tags: ["Admin"]
+      summary: Get the revenue analytics
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/add_topic:
+    post:
+      tags: ["Admin"]
+      summary: Add a topic
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              total_videos:
+                type: string
+              topic_name:
+                type: string
+              duration:
+                type: string
+              demo_src:
+                type: string
+              sub_topics:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_topic:
+    post:
+      tags: ["Admin"]
+      summary: Update a topic
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              topic_id:
+                type: string
+              sub_topics:
+                type: string
+              total_videos:
+                type: string
+              topic_name:
+                type: string
+              duration:
+                type: string
+              demo_src:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/add_module:
+    post:
+      tags: ["Admin"]
+      summary: Add a module
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              topic_id:
+                type: string
+              module_name:
+                type: string
+              duration:
+                type: string
+              description:
+                type: string
+              demo_src:
+                type: string
+              chapters:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_module:
+    post:
+      tags: ["Admin"]
+      summary: Update a module
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              module_id:
+                type: string
+              chapters:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/monthly_analytics:
+    get:
+      tags: ["Admin"]
+      summary: Get the monthly_analytics
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/sepe_topic:
+    post:
+      tags: ["Content"]
+      summary: Add a new topics
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              topic_name:
+                type: string
+              course_id:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: string
+              total_videos:
+                type: string
+              demo_src:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/sepe_Module:
+    post:
+      tags: ["Content"]
+      summary: Add a new Module
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              module_name:
+                type: string
+              topic_id:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: string
+              description:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/sepe_Chapter:
+    post:
+      tags: ["Content"]
+      summary: Add a new chapters
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              chapter_name:
+                type: string
+              module_id:
+                type: string
+              video_src:
+                type: string
+              appearance_order:
+                type: string
+              description:
+                type: string
+              duration:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/daily_analytics:
+    get:
+      tags: ["Admin"]
+      summary: Get the daily_analytics
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/custom_analytics:
+    post:
+      tags: ["Content"]
+      summary: post custom_analytics
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              initial_date:
+                type: string
+              final_date:
+                type: string
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/weekly_analytics:
+    get:
+      tags: ["Admin"]
+      summary: Get the weekly_analytics
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/all_admin_users:
+    get:
+      tags: ["Admin"]
+      summary: Get all the admin users
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_admin_username:
+    post:
+      tags: ["Content"]
+      summary: Update the admin username
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              old_username:
+                type: string
+              new_username:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/admin_to_manager:
+    post:
+      tags: ["Content"]
+      summary: Admin to Manager
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              admin_users_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/manager_to_admin:
+    post:
+      tags: ["Content"]
+      summary: Manager to Admin
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              admin_users_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_admin_user:
+    post:
+      tags: ["Content"]
+      summary: Update admin user
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              phonenumber:
+                type: string
+              admin_users_id:
+                type: string
+              username:
+                type: string
+              password:
+                type: string
+              otp:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/delete_admin_user:
+    post:
+      tags: ["Content"]
+      summary: Delete admin user
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              admin_users_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/get_carousel:
+    get:
+      tags: ["Admin"]
+      summary: Get all the carousel
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_carousel:
+    post:
+      tags: ["Content"]
+      summary: Update carousel
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              carousel_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/delete_carousel:
+    post:
+      tags: ["Content"]
+      summary: Delete carousel
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              carousel_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/all_course_card:
+    get:
+      tags: ["Admin"]
+      summary: Get all the course cards
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/get_faq_ques:
+    get:
+      tags: ["Admin"]
+      summary: Get all the course cards
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/add_faq_ques:
+    post:
+      tags: ["Content"]
+      summary: Add a FAQ
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              question:
+                type: string
+              answer:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/update_user:
+    post:
+      tags: ["Content"]
+      summary: Update user
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/delete_user:
+    post:
+      tags: ["Content"]
+      summary: Delete a user
+      description: Admin
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/admin/all_quizes:
+    get:
+      tags: ["Admin"]
+      summary: Get all the quizes
+      description: Admin
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found

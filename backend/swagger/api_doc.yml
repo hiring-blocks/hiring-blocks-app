@@ -1,0 +1,2359 @@
+swagger: "2.0"
+
+info:
+  title: API Document of finstreet-backend
+  description: All API of  staging available here.
+
+host: apilms.quadbtech.com
+basePath: /
+schemes: [ https]
+
+consumes: [application/json]
+produces: [application/json]
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: auth
+    in: header
+
+paths:
+  /api/v1/certificate:
+    post:
+      tags: ["Certificate"]
+      summary: Get Course Certificate
+      description: Get the certificate for the specified course
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/users_popup:
+    get:
+      tags: ["User"]
+      summary: Get Users Popup
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/userinfo:
+    get:
+      tags: ["User"]
+      summary: Get User Information
+      parameters:
+        - in: query
+          required: true
+          name: token
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  # /api/v1/register:
+  #   post:
+  #     tags: ["Authentication"]
+  #     summary: Register the User
+  #     parameters:
+  #       - in: query
+  #         name : full_name
+  #         required: true
+  #         schema:
+  #           type: string
+  #       - in: query
+  #         name : mobile_no
+  #         required: true
+  #         schema:
+  #           type: string
+  #       - in: query
+  #         name : user_type
+  #         required: true
+  #         schema:
+  #           type: string
+  #       - in: query
+  #         name : device
+  #         required: true
+  #         schema:
+  #           type: string
+  #       - in: query
+  #         name : ip_address
+  #         required: true
+  #         schema:
+  #           type: string
+  #       - in: query
+  #         name : time
+  #         required: true
+  #         schema:
+  #           type: string
+  #     responses:
+  #       200:
+  #         description: success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 success:
+  #                   type: boolean
+  #                 message:
+  #                   type: string
+  #       403:
+  #         description: Not Authorized
+  #       500:
+  #         description: Not Found
+
+  /api/v1/register:
+    post:
+      tags: ["Authentication"]
+      summary: Foreign Register the User
+      parameters:
+        - in: query
+          name : full_name
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : email
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : countryCode
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : user_type
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : device
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : ip_address
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : time
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/submit_number:
+    post:
+      tags: ["Authentication"]
+      summary: Register using phone number
+      parameters:
+        - in: query
+          name : mobile_no
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : user_type
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : device
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : ip_address
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : time
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/popup_submit_number:
+    post:
+      tags: ["Authentication"]
+      summary: Register using pop-up phone number
+      parameters:
+        - in: query
+          name : full_name
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : mobile_no
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name : user_type
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : device
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : ip_address
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : time
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/resend:
+    post:
+      tags: ["Authentication"]
+      summary: Resend OTP in mobile number
+      parameters:
+        - in: query
+          required: true
+          name: mobile_no
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/resend_mail:
+    post:
+      tags: ["Authentication"]
+      summary: Resend E-mail
+      parameters:
+        - in: query
+          required: true
+          name: email
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  # /api/v1/login:
+  #   post:
+  #     tags: ["Authentication"]
+  #     summary: Login the User
+  #     parameters:
+  #       - in: query
+  #         name : mobile_no
+  #         required: true
+  #         schema:
+  #           type: integer
+  #       - in: query
+  #         name : device
+  #         required: true
+  #         schema:
+  #           type: string
+  #       - in: query
+  #         name : ip_address
+  #         required: true
+  #         schema:
+  #           type: string
+  #       - in: query
+  #         name : time
+  #         required: true
+  #         schema:
+  #           type: string
+  #     responses:
+  #       200:
+  #         description: success
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #               properties:
+  #                 success:
+  #                   type: boolean
+  #                 message:
+  #                   type: string
+  #       403:
+  #         description: Not Authorized
+  #       500:
+  #         description: Not Found
+
+  /api/v1/login:
+    post:
+      tags: ["Authentication"]
+      summary:  login the User
+      parameters:
+        - in: query
+          name : email
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name : device
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : ip_address
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : time
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/verify:
+    post:
+      tags: ["Authentication"]
+      summary: Verify the user
+      parameters:
+        - in: query
+          name : mobile_no
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : otp
+          required: true
+          schema:
+            type: integer       
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/verify_mail:
+    post:
+      tags: ["Authentication"]
+      summary: Foreign verify the user
+      parameters:
+        - in: query
+          name : email
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : otp
+          required: true
+          schema:
+            type: integer      
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/logout:
+    post:
+      tags: ["Authentication"]
+      summary: Logout the User
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/notification_token:
+    post:
+      tags: ["Notifications"]
+      summary: Update Notification Token for user
+      parameters:
+        - in: query
+          name : user_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name : notification_token
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/notification_token_only:
+    post:
+      tags: ["Notifications"]
+      summary: Update Notification Token Only
+      parameters:
+        - in: query
+          required: true
+          name : notification_token
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/all_courses:
+    get:
+      tags: ["Courses"]
+      summary: Get all courses
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/category_all_courses:
+    get:
+      tags: ["Courses"]
+      summary: Get all courses for a particular category
+      parameters:
+        - in: query
+          required: true
+          name: category_type
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/single_course:
+    get:
+      tags: ["Courses"]
+      summary: Get a single course with FAQ, Modules, Chapters and Why Joined
+      parameters:
+        - in: query
+          required: true
+          name: course_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/chapters_course:
+    get:
+      tags: ["Courses"]
+      summary: Get a single course chapters
+      parameters:
+        - in: query
+          required: true
+          name: subtopic_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/order_courses:
+    post:
+      tags: ["Courses"]
+      summary: Order a course
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              phonenumber:
+                type: string
+              name:
+                type: string
+              address:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+              pincode:
+                type: string
+              referral_id:
+                type: string
+              from_ip:
+                type: string
+              from_browser:
+                type: string
+              amount:
+                type: string
+              product_id:
+                type: string
+              payment_type:
+                type: string
+              status:
+                type: string
+              capture_status:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/update_order_courses:
+    post:
+      tags: ["Courses"]
+      summary: Update Course Order
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              order_id:
+                type: string
+              product_id:
+                type: string
+              phonenumber:
+                type: string
+              payment_id:
+                type: string
+              capture_status:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/affiliate_courses:
+    get:
+      tags: ["Courses"]
+      summary: Get affiliated course
+      parameters:
+        - in: query
+          required: true
+          name: user_referral_code
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/purchased_courses:
+    get:
+      tags: ["Courses"]
+      summary: Get all purchased courses
+      parameters:
+        - in: query
+          required: true
+          name: phonenumber
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/single_purchased_course:
+    get:
+      tags: ["Courses"]
+      summary: To check if a course is purchased or not
+      parameters:
+        - in: query
+          required: true          
+          schema:
+            type: object
+            properties:
+              phonenumber:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/enter_courses:
+    get:
+      tags: ["Courses"]
+      summary: Create a course
+      parameters:
+        - in: body
+          required: true          
+          schema:
+            type: object
+            properties:
+              course_name:
+                type: string
+              course_desc:
+                type: string
+              course_duration:
+                type: string
+              enrolled_students:
+                type: string
+              course_lec:
+                type: string
+              course_thumb_img:
+                type: string
+              course_img:
+                type: string
+              course_video_url:
+                type: string
+              course_join_img:
+                type: string
+              course_sale_price:
+                type: string
+              course_base_price:
+                type: string
+              course_state:
+                type: string
+              category_type:
+                type: string
+              course_code:
+                type: string
+              status:
+                type: string
+              appearance_order:
+                type: string
+              what_u_get:
+                type: string
+              checkout_desc:
+                type: string
+              checkout_desc:
+                type: string
+              state_logo:
+                type: string
+              mock_test:
+                type: string
+              examination_date:
+                type: string
+              live_session_date:
+                type: string
+              page_title:
+                type: string
+              meta_desc:
+                type: string
+              checkout_page_title:
+                type: string
+              checkout_meta_desc:
+                type: string
+              what_u_get_with_course_heading:
+                type: string
+              what_u_get_with_course_1:
+                type: string
+              what_u_get_with_course_2:
+                type: string
+              what_u_get_with_course_3:
+                type: string
+              what_u_get_with_course_4:
+                type: string
+              what_u_get_join_heading:
+                type: string
+              exam_prep_heading:
+                type: string
+              syllabus_section_heading:
+                type: string
+              what_u_get_heading:
+                type: string
+              checkout_unlocking_point1:
+                type: string
+              checkout_unlocking_point2:
+                type: string
+              checkout_unlocking_point3:
+                type: string
+              checkout_unlocking_point4:
+                type: string
+              checkout_endline:
+                type: string
+              telegram_grp:
+                type: string              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/all_courses_search:
+    get:
+      tags: ["Courses"]
+      summary: Search a course
+      parameters:
+        - in: query
+          required: true
+          name: search
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/check_order:
+    get:
+      tags: ["Orders"]
+      summary: Check Order Status
+      parameters:
+        - in: query
+          required: true          
+          schema:
+            type: object
+            properties:
+              product_id:
+                type: string
+              phonenumber:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/check_order:
+    get:
+      tags: ["Courses"]
+      summary: Purchase Course Video
+      parameters:
+        - in: query
+          required: true
+          name: course_id         
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/get_lecture_record:
+    get:
+      tags: ["Lecture Record"]
+      summary: Get lecture record
+      parameters:
+        - in: query
+          required: true          
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/update_lecture_record:
+    post:
+      tags: ["Lecture Record"]
+      summary: Update lecture record
+      parameters:
+        - in: query
+          required: true          
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              module_id:
+                type: string
+              chapter_id:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/set_score:
+    post:
+      tags: ["Quiz"]
+      summary: Set Quiz Score
+      parameters:
+        - in: query
+          required: true          
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              quiz_id:
+                type: string
+              score:
+                type: string
+              time:
+                type: string
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/get_quiz_scores:
+    get:
+      tags: ["Quiz"]
+      summary: Get the quiz scores
+      parameters:
+        - in: query
+          required: true          
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              course_id:
+                type: string              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/course_quiz:
+    get:
+      tags: ["Quiz"]
+      summary: Create a course quiz
+      parameters:
+        - in: body
+          required: true          
+          schema:
+            type: object
+            properties:              
+              course_id:
+                type: string
+              heading:
+                type: string
+              total_quizes:
+                type: string
+              duration:
+                type: string              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/update_course_quiz:
+    get:
+      tags: ["Quiz"]
+      summary: Update a course quiz
+      parameters:
+        - in: body
+          required: true          
+          schema:
+            type: object
+            properties:              
+              course_quiz_id:
+                type: string
+              course_id:
+                type: string
+              heading:
+                type: string
+              total_quizes:
+                type: string
+              duration:
+                type: string               
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/delete_course_quiz:
+    get:
+      tags: ["Quiz"]
+      summary: Delete a course quiz
+      parameters:
+        - in: body
+          required: true
+          name: course_quiz_id         
+          schema:
+            type: string                       
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/delete_course_quiz:
+    get:
+      tags: ["Quiz"]
+      summary: Get data of a course quiz
+      parameters:
+        - in: body
+          required: true
+          name: course_id         
+          schema:
+            type: string                 
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/quiz:
+    get:
+      tags: ["Quiz"]
+      summary: Create a Quiz
+      parameters:
+        - in: body
+          required: true                   
+          schema:
+            type: object
+            properties:
+              course_quiz_id:
+                type: string
+              quiz_name:
+                type: string
+              total_questions:
+                type: string
+              total_marks:
+                type: string
+              total_time:
+                type: string
+              appearance_order:
+                type: string
+                             
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/update_quiz:
+    get:
+      tags: ["Quiz"]
+      summary: Update a Quiz
+      parameters:
+        - in: body
+          required: true                   
+          schema:
+            type: object
+            properties:
+              quiz_id:
+                type: string
+              course_quiz_id:
+                type: string
+              quiz_name:
+                type: string
+              total_questions:
+                type: string
+              total_marks:
+                type: string
+              total_time:
+                type: string
+              appearance_order:
+                type: string
+                             
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/delete_quiz:
+    get:
+      tags: ["Quiz"]
+      summary: Delete a Quiz
+      parameters:
+        - in: body
+          required: true
+          name: quiz_id                   
+          schema:
+            type: string            
+                             
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/quiz_question:
+    get:
+      tags: ["Quiz"]
+      summary: Create quiz questions
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              quiz_id:
+                type: string
+              question:
+                type: string
+              question_img:
+                type: string
+              option1:
+                type: string
+              option1_img:
+                type: string
+              option2:
+                type: string
+              quizoption2_img_id:
+                type: string
+              option3:
+                type: string
+              option3_img:
+                type: string
+              option4:
+                type: string
+              option4_img:
+                type: string
+              answer:
+                type: string
+              appearance_order:
+                type: string    
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/delete_quiz_question:
+    get:
+      tags: ["Quiz"]
+      summary: Delete quiz questions
+      parameters:
+        - in: body
+          required: true
+          name: quiz_question_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/check_quiz_question:
+    get:
+      tags: ["Quiz"]
+      summary: Check quiz questions
+      parameters:
+        - in: query
+          required: true
+          name: quiz_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/quiz_questions:
+    get:
+      tags: ["Quiz"]
+      summary: Get quiz questions
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              quiz_id:
+                type: string
+              user_id:
+                type: string
+              course_id:
+                type: string
+              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/user_referral:
+    post:
+      tags: ["Referral"]
+      summary: Use Referral
+      parameters:
+        - in: query
+          name : course_id
+          required: true                   
+          schema:
+            type: string
+
+        - in: query
+          name : user_referral_code
+          required: true                   
+          schema:
+            type: string
+
+        - in: query
+          name : revisiting
+          required: true                   
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/apply_discount_coupon:
+    get:
+      tags: ["Coupon"]
+      summary: Apply Discount Coupon
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+              
+              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/enter_discount_coupon:
+    get:
+      tags: ["Coupon"]
+      summary: Enter Discount Coupon
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+              flat:
+                type: string              
+              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/update_discount_coupon:
+    get:
+      tags: ["Coupon"]
+      summary: Update Discount Coupon
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+              flat:
+                type: string              
+              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/delete_discount_coupon:
+    get:
+      tags: ["Coupon"]
+      summary: Delete Discount Coupon
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+                          
+              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/delete_discount_coupon:
+    get:
+      tags: ["Coupon"]
+      summary: Delete Discount Coupon
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              coupon_name:
+                type: string
+                          
+              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/fetch_discount_coupon:
+    get:
+      tags: ["Coupon"]
+      summary: Fetch Discount Coupon
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/total_bonus:
+    get:
+      tags: ["Bonus and History"]
+      summary: Get Total Bonus
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              phonenumber:
+                type: string
+              referral_id:
+                type: string              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/bonus_history:
+    get:
+      tags: ["Bonus and History"]
+      summary: Get Bonus History
+      parameters:
+        - in: query
+          required: true
+          name: referral_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/redeem_history:
+    get:
+      tags: ["Bonus and History"]
+      summary: Get Redeem History
+      parameters:
+        - in: query
+          required: true
+          name: user_id
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/redeem_requests:
+    post:
+      tags: ["Bonus and History"]
+      summary: Send a redeem request
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              phonenumber:
+                type: string
+              gpay_number:
+                type: string
+              phonepe_number:
+                type: string
+              paytm_number:
+                type: string
+              upi_number:
+                type: string
+              upi_id:
+                type: string
+              account_number:
+                type: string
+              account_name:
+                type: string
+              account_ifsc:
+                type: string
+              method:
+                type: string
+              redeem_amount:
+                type: string
+              from_ip:
+                type: string
+              from_browser:
+                type: string
+              time:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/invoice:
+    get:
+      tags: ["Invoice"]
+      summary: Get the invoice
+      parameters:
+        - in: query
+          required: true
+          name: order_courses_id
+          schema:
+            type: string
+            
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/fetch_video_url:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Get the video URL
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              user_id:
+                type: string
+              chapter_id:
+                type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/chapter_watched:
+    post:
+      tags: ["Chapter and Topic"]
+      summary: Put percentage of chapter watched
+      parameters:
+        - in: query
+          required: true
+          schema:
+            type: object
+            properties:
+              course_id:
+                type: string
+              user_id:
+                type: string
+              chapter_id:
+                type: string
+              percentage:
+                type: number
+              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/Chapter:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Create a chapter
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              chapter_name:
+                type: string
+              module_id:
+                type: string
+              video_src:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: number
+              description:
+                type: number              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/Module:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Create a module
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              module_name:
+                type: string
+              topic_id:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: string
+              description:
+                type: number              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/topic:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Create a topic
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              topic_name:
+                type: string
+              course_id:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: string
+              total_videos:
+                type: number
+              demo_src:
+                type: number               
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/sepe_topic:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Create a seperate topic
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              topic_name:
+                type: string
+              course_id:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: string
+              total_videos:
+                type: number
+              demo_src:
+                type: number               
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/v1/sepe_Module:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Create a seperate module
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              module_name:
+                type: string
+              topic_id:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: string
+              description:
+                type: number              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/sepe_Chapter:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Create a seperate chapter
+      parameters:
+        - in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              chapter_name:
+                type: string
+              module_id:
+                type: string
+              video_src:
+                type: string
+              duration:
+                type: string
+              appearance_order:
+                type: string
+              description:
+                type: number              
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+  
+  /api/v1/sepe_Chapter:
+    get:
+      tags: ["Chapter and Topic"]
+      summary: Create a seperate chapter
+      parameters:
+        - in: query
+          required: true
+          name: topic_id
+          schema:
+            type: string            
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        403:
+          description: Not Authorized
+        500:
+          description: Not Found
+
+  /api/company :
+    post : 
+      tags : ['Company']
+      security:
+        - Bearer: []
+      summary : Create your company for job post
+      parameters:
+        - in: formData
+          name: logo
+          type: file
+          required: true
+        - in: body
+          name: page
+          description: Enter company details.
+          schema:
+            type: object
+            properties:
+              company_name:
+                type: string
+              company_description:
+                type: string
+              company_size:
+                type: string
+              phone:
+                type : string
+              country_code:
+                type : integer
+              established_year:
+                type : integer
+              address1:
+                type : string
+              address2:
+                type : string
+      responses : 
+        200 : 
+          description : success
+          content : 
+            application/json:
+              schema :
+                type : object
+                properties: 
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  company : 
+                    object
+        403 : 
+          description : Not Authorized
+        500 : 
+          description : Not Found.
